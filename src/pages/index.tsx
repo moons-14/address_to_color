@@ -32,18 +32,20 @@ export default function Home() {
         <Container>
           <Center style={{ height: "100vh" }}>
             <Box>
-              <Center><Title>Address to <Text span c="blue" inherit>Color</Text></Title></Center>
-              <Center><Text fz="xl" my={10} style={{ textAlign: "center" }}>Generates a specific color from an address</Text></Center>
-              <Space h={30} />
-              <AddressInput onClick={addressInputClick} />
-              <Center fz={20} my={20}><Text>OR</Text></Center>
-              <Center><ConnectButton chainStatus="none" showBalance={false} /></Center>
               {(address && !isDisconnected || color != "#fff") ?
                 <Box my={30} p="md">
                   <Center><Title order={3}>Your Color</Title></Center>
                   <Center my={10}>{address && !isDisconnected ? colorHash.hex(address) : color}</Center>
                 </Box>
-                : <></>
+                :
+                <>
+                  <Center><Title>Address to <Text span c="blue" inherit>Color</Text></Title></Center>
+                  <Center><Text fz="xl" my={10} style={{ textAlign: "center" }}>Generates a specific color from an address</Text></Center>
+                  <Space h={30} />
+                  <AddressInput onClick={addressInputClick} />
+                  <Center fz={20} my={20}><Text>OR</Text></Center>
+                  <Center><ConnectButton chainStatus="none" showBalance={false} /></Center>
+                </>
               }
             </Box>
           </Center>
